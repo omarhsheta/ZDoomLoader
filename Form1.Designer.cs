@@ -57,6 +57,7 @@
             // 
             // engine_input
             // 
+            engine_input.Enabled = false;
             engine_input.Location = new Point(12, 39);
             engine_input.Name = "engine_input";
             engine_input.Size = new Size(597, 23);
@@ -71,6 +72,7 @@
             engine_button.TabIndex = 3;
             engine_button.Text = "Find Engine";
             engine_button.UseVisualStyleBackColor = true;
+            engine_button.Click += engine_button_Click;
             // 
             // checkedListBox1
             // 
