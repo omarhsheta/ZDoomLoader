@@ -15,7 +15,7 @@ namespace ZDoomLoader
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+                openFileDialog.Filter = "EXE Files (*.exe)|*.exe";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
@@ -23,20 +23,30 @@ namespace ZDoomLoader
                 {
                     //Get the path of specified file
                     filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
+                    var fileName = filePath.Split("\\");
+                    string[] supportedEngines = ["gzdoom.exe", "zdoom.exe", "zandronum.exe", "qzandronum.exe"];
+                    if (!supportedEngines.Contains(fileName[fileName.Length-1])) {
+                        MessageBox.Show("Please choose either GZDoom, ZDoom, or Zandronum.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else
                     {
-                        fileContent = reader.ReadToEnd();
+                        engine_input.Text = filePath;
                     }
                 }
             }
 
 
-            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
-            engine_input.Text = filePath;
+        }
+
+        private void run_button_Click(object sender, EventArgs e)
+        {
+            if (engine_input.Text.Length > 0 )
+            {
+                System.Diagnostics.Process.Start(engine_input.Text);
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Please load a supported Doom Engine", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -102,6 +102,7 @@
             run_button.TabIndex = 6;
             run_button.Text = "Run Doom!";
             run_button.UseVisualStyleBackColor = true;
+            run_button.Click += run_button_Click;
             // 
             // Form1
             // 
@@ -117,7 +118,7 @@
             Controls.Add(wads_label);
             Controls.Add(engine_label);
             Name = "Form1";
-            Text = "Form1";
+            Text = "ZDoomLoader";
             ResumeLayout(false);
             PerformLayout();
         }
