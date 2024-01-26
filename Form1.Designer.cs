@@ -32,7 +32,7 @@
             wads_label = new Label();
             engine_input = new TextBox();
             engine_button = new Button();
-            checkedListBox1 = new CheckedListBox();
+            pwad_list = new CheckedListBox();
             pwad_button = new Button();
             run_button = new Button();
             SuspendLayout();
@@ -74,14 +74,14 @@
             engine_button.UseVisualStyleBackColor = true;
             engine_button.Click += engine_button_Click;
             // 
-            // checkedListBox1
+            // pwad_list
             // 
-            checkedListBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(15, 166);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(760, 220);
-            checkedListBox1.TabIndex = 4;
+            pwad_list.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pwad_list.FormattingEnabled = true;
+            pwad_list.Location = new Point(15, 166);
+            pwad_list.Name = "pwad_list";
+            pwad_list.Size = new Size(760, 220);
+            pwad_list.TabIndex = 4;
             // 
             // pwad_button
             // 
@@ -92,6 +92,7 @@
             pwad_button.TabIndex = 5;
             pwad_button.Text = "Add PWAD";
             pwad_button.UseVisualStyleBackColor = true;
+            pwad_button.Click += pwad_button_Click;
             // 
             // run_button
             // 
@@ -112,7 +113,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(run_button);
             Controls.Add(pwad_button);
-            Controls.Add(checkedListBox1);
+            Controls.Add(pwad_list);
             Controls.Add(engine_button);
             Controls.Add(engine_input);
             Controls.Add(wads_label);
@@ -129,7 +130,7 @@
         private Label wads_label;
         private TextBox engine_input;
         private Button engine_button;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox pwad_list;
         private Button pwad_button;
         private Button run_button;
     }
