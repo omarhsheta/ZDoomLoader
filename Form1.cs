@@ -45,7 +45,12 @@ namespace ZDoomLoader
             {
                 if (pwad_list.Items.Count > 0)
                 {
-                    System.Diagnostics.Process.Start(engine_input.Text);
+                    var args = "";
+                    foreach (var item in pwad_list.CheckedItems)
+                    {
+                        args += item.ToString() + ' ';
+                    }
+                    System.Diagnostics.Process.Start(engine_input.Text, args);
                 } else
                 {
                     System.Diagnostics.Process.Start(engine_input.Text);
