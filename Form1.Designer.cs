@@ -35,6 +35,8 @@
             pwad_list = new CheckedListBox();
             pwad_button = new Button();
             run_button = new Button();
+            select_button = new Button();
+            unselect_button = new Button();
             SuspendLayout();
             // 
             // engine_label
@@ -105,12 +107,34 @@
             run_button.UseVisualStyleBackColor = true;
             run_button.Click += run_button_Click;
             // 
+            // select_button
+            // 
+            select_button.Location = new Point(15, 415);
+            select_button.Name = "select_button";
+            select_button.Size = new Size(86, 23);
+            select_button.TabIndex = 7;
+            select_button.Text = "Select All";
+            select_button.UseVisualStyleBackColor = true;
+            select_button.Click += select_button_Click;
+            // 
+            // unselect_button
+            // 
+            unselect_button.Location = new Point(107, 415);
+            unselect_button.Name = "unselect_button";
+            unselect_button.Size = new Size(86, 23);
+            unselect_button.TabIndex = 8;
+            unselect_button.Text = "Unselect All";
+            unselect_button.UseVisualStyleBackColor = true;
+            unselect_button.Click += unselect_button_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(800, 450);
+            Controls.Add(unselect_button);
+            Controls.Add(select_button);
             Controls.Add(run_button);
             Controls.Add(pwad_button);
             Controls.Add(pwad_list);
@@ -133,5 +157,7 @@
         private CheckedListBox pwad_list;
         private Button pwad_button;
         private Button run_button;
+        private Button select_button;
+        private Button unselect_button;
     }
 }

@@ -14,7 +14,6 @@ namespace ZDoomLoader
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "EXE Files (*.exe)|*.exe";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
@@ -52,7 +51,8 @@ namespace ZDoomLoader
                     }
                     System.Diagnostics.Process.Start(engine_input.Text, args);
                     Console.WriteLine($"{engine_input.Text} {args}");
-                } else
+                }
+                else
                 {
                     System.Diagnostics.Process.Start(engine_input.Text);
                 }
@@ -71,7 +71,6 @@ namespace ZDoomLoader
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "DooM mod files (*.wad or *.pk3 or *.ipk3)|*.wad;*.pk3;*.ipk3";
                 openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
@@ -93,6 +92,22 @@ namespace ZDoomLoader
                         }
                     }
                 }
+            }
+        }
+
+        private void select_button_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < pwad_list.Items.Count; i++)
+            {
+                pwad_list.SetItemChecked(i, true);
+            }
+        }
+
+        private void unselect_button_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < pwad_list.Items.Count; i++)
+            {
+                pwad_list.SetItemChecked(i, false);
             }
         }
     }
